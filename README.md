@@ -4,7 +4,7 @@
 	
 	class MyClass {
 		@Event("eventName")
-		async function trigger() {
+		async trigger() {
 			return "Hello World!";	
 		}
 	};
