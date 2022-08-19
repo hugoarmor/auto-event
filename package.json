@@ -1,0 +1,32 @@
+{
+  "name": "auto-event",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^1.14.1",
+    "tsyringe": "^4.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugoarmor/auto-event.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugoarmor/auto-event/issues"
+  },
+  "homepage": "https://github.com/hugoarmor/auto-event#readme"
+}
