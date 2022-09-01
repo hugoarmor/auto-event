@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/hugoarmor/auto-event/issues"
   },
-  "homepage": "https://github.com/hugoarmor/auto-event#readme"
+  "homepage": "https://github.com/hugoarmor/auto-event#readme",
+  "keywords": ["events", "listener", "decorators"]
 }
