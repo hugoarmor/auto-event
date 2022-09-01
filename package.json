@@ -8,9 +8,6 @@
     "lib": "lib"
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.13",
-    "tslib": "^1.14.1",
-    "tsyringe": "^4.7.0"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
