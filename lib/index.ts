@@ -1,6 +1,6 @@
 import eventsContainer, { EventsContainer } from "./events";
-import { Event } from "./decorators";
+import { Event, EventListener } from "./decorators";
 
-export { EventsContainer, Event };
+export { EventsContainer, Event, EventListener };
 
 export default eventsContainer;

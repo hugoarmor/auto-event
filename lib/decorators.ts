@@ -1,4 +1,4 @@
-import { Descriptor } from "./interfaces";
+import { DescriptorAsync, DescriptorSync } from "./interfaces";
 import eventsContainer from "./events";
 
 /**
@@ -9,9 +9,9 @@ import eventsContainer from "./events";
 export function Event(eventName: string) {
   eventsContainer.registerEvent(eventName);
 
-  return function decorator(target, name, descriptor: Descriptor) {
+  return function decorator(target, name, descriptor: DescriptorAsync) {
     const fn = descriptor.value;
-    if(!fn) {
+    if (!fn) {
       return
     }
     descriptor.value = (...args) => {
@@ -22,5 +22,23 @@ export function Event(eventName: string) {
         return eventResponse;
       });
     };
+  };
+}
+
+/**
+ * Generates a new event listener wich will execute the function passing the event response as only paramater
+ * 
+ * @param eventName name of the event to listen
+ */
+export function EventListener(eventName: string) {
+  return function decorator(target, name, descriptor: DescriptorSync) {
+
+    const fn = (res) => descriptor.value ? descriptor.value(res) : null
+
+    if (!fn) {
+      return
+    }
+
+    eventsContainer.on(eventName, res => fn(res));
   };
 }
