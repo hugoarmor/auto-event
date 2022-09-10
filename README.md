@@ -10,21 +10,24 @@ npm install auto-event
 ## Example
 
 Using the `@Event()` decorator, you set your function to be an event emitter that uses
-it's return as a callback parameter. After that, you can declare an event listener.
+it's return as a callback parameter. After that, you can declare an event listener with the `EventListener()` decorator.
 
 ```ts
-import eventsContainer, { Event } from "auto-event";
+import { Event, EventListener } from "auto-event";
 
-class MyClass {
+class MyEvents {
   @Event("eventName")
   async trigger() {
     return "Hello World!";
   }
 };
 
-eventsContainer.on("eventName", res => {
-  console.log(res);
-});
+class MyEventListeners {
+  @EventListener("eventName")
+  async listener(eventResponse) {
+    console.log(eventResponse);
+  }
+};
 
 const myClass = new MyClass();
 
@@ -33,10 +36,12 @@ myClass.trigger();
 // Expected output: Hello World!
 ```
 
-To end a listener, you can just use the `end()` function.
+You can add a listener in a different way calling the `on()` function from the eventsContainer.
 
 ```ts
-const eventListener = eventsContainer.on("eventName", res => {
+import eventsContainer from "auto-event";
+
+const eventListener = eventsContainer.on("eventName", eventResponse => {
   console.log(res);
 });
 
